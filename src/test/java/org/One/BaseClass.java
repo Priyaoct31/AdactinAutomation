@@ -21,6 +21,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
@@ -36,7 +37,7 @@ public class BaseClass {
 	
 	public static void chromeBrowser() {
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\pc\\eclipse-workspace\\NEW\\AdactinAutomation\\Driver\\chrome.exe");
+		WebDriverManager.chromedriver().setup();
 		
 		driver = new ChromeDriver();
 		
@@ -111,7 +112,7 @@ public class BaseClass {
 	
 	public static String readFromExcel(int rowNo, int cellNo) throws IOException {
 	
-	File f = new File("C:\\Users\\pc\\eclipse-workspace\\NEW\\PriyaMvn\\Excel\\AdactinData.xlsx");
+	File f = new File("C:\\Users\\pc\\eclipse-workspace\\NEW\\AdactinAutomation\\Excel\\AdactinData.xlsx");
 	FileInputStream fin = new FileInputStream(f);
 	XSSFWorkbook book = new XSSFWorkbook(fin);		
 	XSSFSheet sh = book.getSheet("Adactin");
